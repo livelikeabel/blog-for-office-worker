@@ -11,8 +11,14 @@ def index(request):
     }
     return render(request, "index.html", ctx)
 
-def detail(request):
-    pass
+def detail(request, article_id):
+    article = Article.objects.get(id=article_id)
+    hashtag_list = HashTag.objects.all()
+    ctx = {
+        "article" : article,
+        "hashtag_list" : hashtag_list,
+    }
+    return render(request, "detail.html", ctx)
 
 # def about(request):
 #     pass

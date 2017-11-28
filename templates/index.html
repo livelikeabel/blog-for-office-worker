@@ -1,14 +1,6 @@
 {% extends "base.html" %}
 {% block body %}
-<!--nav var-->
-<div class="blog-masthead">
-  <div class="container"> <!-- container는 여백을 띄우고 시작 -->
-    <nav class="blog-nav">
-      <a class="blog-nav-item active" href="#">Home</a>
-      <a class="blog-nav-item" href="#">About</a>
-    </nav>
-  </div>
-</div>
+{% include "navbar.html" %}
 <div class="container">
   <!--제목,제목 설명-->
   <div class="blog-header">
@@ -20,7 +12,11 @@
     <div class="col-sm-8 blog-main">
       <div class="blog-post">
         {% for article in article_list %}
-        <h2 class="blog-post-title">{{ article.title }}</h2>
+        <h2 class="blog-post-title">
+          <a href="/{{ article.id }}/">
+          {{ article.title }}
+          </a>
+        </h2>
         <p>{{ article.content }}</p>
         {% endfor %}
       </div>

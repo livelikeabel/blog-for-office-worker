@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block body %}
+{% include "navbar.html" %}
+<div class="container">
+  <!--제목,제목 설명-->
+  <div class="blog-header">
+    <h1 class="blog-title">{{ article.title }}</h1>
+    <p class="lead blog-description"> ABEL; #nothing #dust Let's live with Nomad, written in the bible </p>
+  </div>
+  <!--내용-->
+  <div class="row">
+    <div class="col-sm-8 blog-main">
+      <div class="blog-post">
+        <p>{{ article.content }}</p>
+      </div>
+    </div>
+    <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+      <div class="sidebar-module">
+        <h4>Hashtags</h4>
+        <ol class="list-unstyled">
+          {% for hashtag in hashtag_list %}
+          <li><a href="#"># {{ hashtag.name }}</a></li>
+          {% endfor %}
+        </ol>
+      </div>
+      <div class="sidebar-module"></div>
+    </div>
+    <!--sidebar-->
+  </div>
+</div>
+
+{% endblock %}
