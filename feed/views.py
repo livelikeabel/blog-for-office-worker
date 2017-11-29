@@ -5,12 +5,15 @@ from .models import Article, Comment, HashTag
 def index(request):
     # GET & POST
     category = request.GET.get("category")
+    hashtag = request.GET.get("hashtag")
 
-    if not category:
-        article_list = Article.objects.all()
-    else:
-        article_list = Article.objects.filter(category=category)
     hashtag_list = HashTag.objects.all()
+    if not category and not hashtag:
+        article_list = Article.objects.all()
+    elif category:
+        article_list = Article.objects.filter(category=category)
+    else:
+        article_list = Article.objects.filter(hashtag__name=hashtag)
 
     # category_list = set([])
     # for article in article_list:
