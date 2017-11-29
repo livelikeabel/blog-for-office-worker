@@ -13,6 +13,11 @@
       <div class="blog-post">
         <p>{{ article.content }}</p>
       </div>
+      <div>
+        {% for comment in article.article_comments.all %}
+          {{ comment.username }} : {{ comment.content }}
+        {% endfor %}
+      </div>
     </div>
     <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
       <div class="sidebar-module">
