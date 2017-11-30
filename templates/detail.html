@@ -18,6 +18,14 @@
           {{ comment.username }} : {{ comment.content }}
         {% endfor %}
       </div>
+      <div>
+        <form method="post" action"">
+          {% csrf_token %}
+          <input name="username" />
+          <input name="content" />
+          <button type="submit">댓글달기</button>
+        </form>
+      </div>
     </div>
     <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
       <div class="sidebar-module">
