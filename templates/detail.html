@@ -13,17 +13,27 @@
       <div class="blog-post">
         <p>{{ article.content }}</p>
       </div>
-      <div>
+      <hr>
+      <div class="blockquote">
+        <label>comment</label>
         {% for comment in article.article_comments.all %}
-          {{ comment.username }} : {{ comment.content }}
+          <div>{{ comment.username }} : {{ comment.content }}</div>
         {% endfor %}
       </div>
-      <div>
-        <form method="post" action"">
+      <div class="reply-form">
+        <form class="form-inline" method="post" action"">
           {% csrf_token %}
-          <input name="username" />
-          <input name="content" />
-          <button type="submit">댓글달기</button>
+          <div>
+            <div class="form-group">
+              <input class="form-control" name="username" placeholder="name"/>
+            </div>
+            <div class="form-group">
+              <input class="form-control" name="content" placeholder="comment"/>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-default" type="submit">Submit</button>
+            </div>
+          </div>
         </form>
       </div>
     </div>

@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 from .models import Article, Comment, HashTag
 
 # Create your views here.
@@ -57,6 +58,8 @@ def detail(request, article_id):
             username=username,
             content=content
         )
+
+        return HttpResponseRedirect("/{}/".format(article_id))
 
     return render(request, "detail.html", ctx)
 
